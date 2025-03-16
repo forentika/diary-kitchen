@@ -58,28 +58,28 @@ class HeroSectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Hero_Section $hero_section)
+    public function edit(Hero_Section $hero)
     {
-        return view('dashboard.herosection.edit', compact('hero_section'));
+        return view('dashboard.herosection.edit', compact('hero'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Hero_Section $hero_section)
+    public function update(Request $request, Hero_Section $hero)
     {
         $validator = Validator::make($request->all(), [
-            'header' => 'required|string|max:255,' . $hero_section->id, 
+            'header' => 'required|string|max:255,' . $hero->id, 
             'paragraph' => 'required|string',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('herosection.edit', $hero_section->id)
+            return redirect()->route('herosection.edit', $hero->id)
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        $hero_section->update($request->all());
+        $hero->update($request->all());
 
         return redirect()->route('herosection.index')
             ->with('success', 'Data hero section berhasil diperbarui.');
@@ -88,11 +88,12 @@ class HeroSectionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Hero_Section $hero_section)
+    public function destroy($id)
     {
+        $hero_section = Hero_Section::findOrFail($id);
         $hero_section->delete();
 
-        return redirect()->route('herosection.index')
-            ->with('success', 'Data hero section berhasil dihapus.');
+        return redirect()->route('dokter.index')
+            ->with('success', 'Data dokter berhasil dihapus.');
     }
 }

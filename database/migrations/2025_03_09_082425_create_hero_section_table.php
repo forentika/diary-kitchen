@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('header');
             $table->text('paragraph');
-            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

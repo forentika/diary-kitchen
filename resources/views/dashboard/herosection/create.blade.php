@@ -41,24 +41,7 @@
                             Informasi Hero Section
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {{-- <!-- No RM -->
-                            <div>
-                                <label for="no_rm" class="block text-sm font-medium text-gray-700 mb-1">
-                                    No. Rekam Medis <span class="text-red-500">*</span>
-                                </label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <i class="fas fa-id-card text-gray-400"></i>
-                                    </div>
-                                    <input type="text" id="no_rm" name="no_rm" value="{{ old('no_rm') }}" 
-                                        class="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 @error('no_rm') border-red-500 @enderror" 
-                                        placeholder="Masukkan nomor RM" required>
-                                </div>
-                                @error('no_rm')
-                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                                @enderror
-                            </div> --}}
-                            
+
                             <!-- Header -->
                             <div>
                                 <label for="header" class="block text-sm font-medium text-gray-700 mb-1">
@@ -76,7 +59,8 @@
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
-                            <!-- Alamat -->
+
+                            <!-- Paragraf -->
                             <div class="md:col-span-2">
                                 <label for="paragraph" class="block text-sm font-medium text-gray-700 mb-1">
                                     Paragraf <span class="text-red-500">*</span>
@@ -93,6 +77,9 @@
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Form Actions -->
                 <div class="flex justify-end items-center space-x-3 mt-8 pt-5 border-t border-gray-200">
                     <a href="{{ route('herosection.index') }}" class="inline-flex items-center px-4 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors focus:ring-4 focus:ring-gray-200">

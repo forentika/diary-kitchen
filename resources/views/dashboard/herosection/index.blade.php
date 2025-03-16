@@ -51,23 +51,19 @@
                 <table class="min-w-full divide-y divide-gray-200 table-fixed" id="dataTable">
                     <thead>
                         <tr class="bg-gray-50 border-b">
-                            <th scope="col" class="py-3.5 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-28">
-                                Judul
-                            </th>
-                            <th scope="col" class="py-3.5 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Deskripsi
-                            </th>
-                            <th scope="col" class="py-3.5 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-28">
-                                Aksi
-                            </th>
+                            <th class="py-3.5 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Header</th>
+                            <th class="py-3.5 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paragraf</th>
+                            <th class="py-3.5 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-28">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         @forelse($hero_section as $hero)
                         <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="py-4 px-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                <div class="px-2.5 py-1.5 bg-blue-100 text-blue-800 rounded-md font-medium text-xs inline-block">
-                                    {{ $hero->header }}
+                            <td class="py-4 px-4 text-sm text-gray-900 font-medium whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <div class="truncate max-w-[150px]" title="{{ $hero->header }}">
+                                        {{ $hero->header }}
+                                    </div>
                                 </div>
                             </td>
                             <td class="py-4 px-4 text-sm text-gray-500 hidden md:table-cell">
@@ -77,12 +73,6 @@
                             </td>
                             <td class="py-4 px-4 text-sm text-center whitespace-nowrap">
                                 <div class="flex justify-center space-x-1">
-                                    <a href="{{ route('herosection.show', $hero->id) }}" class="text-white bg-blue-600 hover:bg-blue-700 p-2 rounded-lg transition-colors" title="Lihat Detail">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                                            <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
-                                            <path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
-                                        </svg>
-                                    </a>
                                     <a href="{{ route('herosection.edit', $hero->id) }}" class="text-white bg-amber-500 hover:bg-amber-600 p-2 rounded-lg transition-colors" title="Edit Hero Section">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                                             <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
@@ -193,7 +183,7 @@
         deleteButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const id = this.getAttribute('data-id');
-                const name = this.getAttribute('data-heaader');
+                const name = this.getAttribute('data-header');
                 
                 deleteForm.setAttribute('action', `/herosection/${id}`);
                 modalMessage.textContent = `Apakah Anda yakin ingin menghapus data hero section "${header}"? Proses ini tidak dapat dibatalkan.`;
