@@ -25,27 +25,6 @@
                     <span class="{{ request()->is('dashboard') ? 'font-medium' : '' }}">Dashboard</span>
                 </a>
             </li>
-            <li>
-                <button @click="activeDropdown = activeDropdown === 'beranda' ? null : 'beranda'" 
-                    class="w-full flex items-center justify-between px-4 py-2.5 text-gray-600 hover:bg-pink-50 hover:text-gray-800 rounded-lg transition-colors group">
-                    <div class="flex items-center">
-                        <i class="fas fa-chart-bar w-5 h-5 mr-3 text-gray-500 group-hover:text-pink-600 transition-colors"></i>
-                        <span>Beranda</span>
-                    </div>
-                    <i class="fas" :class="activeDropdown === 'beranda' ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
-                </button>
-                <div x-show="activeDropdown === 'beranda'" x-collapse class="pl-12 pr-3 py-1 mt-1 space-y-1">
-                    <a href="/herosection" class="block py-2 px-3 text-sm text-gray-600 hover:bg-pink-50 hover:text-pink-700 rounded-lg transition-colors">
-                        <i class="fas fa-image mr-2"></i> Hero Section
-                    </a>
-                    <a href="/footer" class="block py-2 px-3 text-sm text-gray-600 hover:bg-pink-50 hover:text-pink-700 rounded-lg transition-colors">
-                        <i class="fas fa-copyright mr-2"></i> Footer
-                    </a>
-                    <a href="/galeri" class="block py-2 px-3 text-sm text-gray-600 hover:bg-pink-50 hover:text-pink-700 rounded-lg transition-colors">
-                        <i class="fas fa-images mr-2"></i> Galeri   
-                    </a>
-                </div>
-            </li>
         
             <!-- Menu Barang -->
             <li>
@@ -58,8 +37,9 @@
                     <i class="fas" :class="activeDropdown === 'barang' ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
                 </button>
                 <div x-show="activeDropdown === 'barang'" x-collapse class="pl-12 pr-3 py-1 mt-1 space-y-1">
-                    <a href="/pharmacy" class="block py-2 px-3 text-sm text-gray-600 hover:bg-pink-50 hover:text-pink-700 rounded-lg transition-colors">
-                        <i class="fas fa-boxes mr-2"></i> Barang
+                    <a href="/barang" class="{{ request()->is('barang*') ? 'flex items-center px-4 py-2.5 text-gray-700 bg-pink-100 hover:bg-pink-200 rounded-lg transition-colors group' : 'flex items-center px-4 py-2.5 text-gray-600 hover:bg-pink-50 hover:text-gray-800 rounded-lg transition-colors group' }}">
+                        <i class="fas fa-users w-5 h-5 mr-3 {{ request()->is('barang*') ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600' }} transition-colors"></i>
+                        <span class="{{ request()->is('barang*') ? 'font-medium' : '' }}">Barang</span>
                     </a>
                     <a href="/kategori-barang" class="block py-2 px-3 text-sm text-gray-600 hover:bg-pink-50 hover:text-pink-700 rounded-lg transition-colors">
                         <i class="fas fas fa-layer-group mr-2"></i> Kategori Barang
