@@ -26,6 +26,7 @@
             <label for="deskripsi" class="form-label">Deskripsi</label>
             <textarea id="deskripsi" name="deskripsi" class="form-control" rows="3">{{ old('deskripsi') }}</textarea>
         </div>
+        
 
         <div class="mb-3">
             <label for="harga" class="form-label">Harga</label>
