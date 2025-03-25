@@ -38,7 +38,7 @@
                 </button>
                 <div x-show="activeDropdown === 'barang'" x-collapse class="pl-12 pr-3 py-1 mt-1 space-y-1">
                     <a href="/barang" class="{{ request()->is('barang*') ? 'flex items-center px-4 py-2.5 text-gray-700 bg-pink-100 hover:bg-pink-200 rounded-lg transition-colors group' : 'flex items-center px-4 py-2.5 text-gray-600 hover:bg-pink-50 hover:text-gray-800 rounded-lg transition-colors group' }}">
-                        <i class="fas fa-users w-5 h-5 mr-3 {{ request()->is('barang*') ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600' }} transition-colors"></i>
+                        <i class="fas  fa-box w-5 h-5 mr-3 {{ request()->is('barang*') ? 'text-pink-600' : 'text-gray-500 group-hover:text-pink-600' }} transition-colors"></i>
                         <span class="{{ request()->is('barang*') ? 'font-medium' : '' }}">Barang</span>
                     </a>
                     <a href="/kategori-barang" class="block py-2 px-3 text-sm text-gray-600 hover:bg-pink-50 hover:text-pink-700 rounded-lg transition-colors">
