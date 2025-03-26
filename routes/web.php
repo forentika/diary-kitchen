@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HeroSectionController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
-use App\Models\Product;
 
 // Authentication Routes
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
@@ -22,4 +21,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
     
     Route::resource('barang', ProductController::class);
+    Route::resource('pesanan', OrderController::class)->only(['index', 'store']);
 });
